@@ -1,0 +1,68 @@
+Javascript the good part
+
+Number
+
+- number variable is 64 bit floating point  = java's double
+- NAN  is a number that can't produce a normal result. isNAN(number)
+
+String
+
+- (\)is escape character. all char is 16 bits wide.
+- "A" === "\n0041"
+
+Statement
+
+- if statement. falsy is -> false, null, undefined, "", 0, NaN.
+- return and expression can't have line end in between
+
+Objects
+
+- property has a name and a value. property value can't be undefined.
+- quotes for name is necessary if it's reserved word or non legal javascript string
+- . can't be used to retrieve if it's a legal javascript name. it's preferred over []
+- ** attempt to retrieve values from "undefined" will throw a typeError exception.  && should be used to guard.
+-        flight.equipement   //undefined.
+-        flight.equipement.model //throw error.
+-        flight.equipement && flight.equipement.model     //undefined.
+- object is always referenced, never copied.
+- hasOwnProperty method doesn't look at prototype chain.
+-        flight.hasOwnProperty("number")
+- delete operator remove property from object, however, won't touch the prototype linkage.
+- delete a property from an object may allow a property from the prototype linkage to shine through
+
+Functions
+
+- the craft of programming is the factoring of a set of requirements into a set of functions and data structures.
+- object produced from object literals are linked to Object.prototype.
+- function object are linked to function.prototype. which itself linked to Object.prototype
+- function has two hidden property> context and code that implement the behavior.
+- function can have methods.
+- the thing special about function is that it can be invoked.
+
+4 invocation pattern
+
+- method invocation pattern. -> "this" refers to the object that contains the method. "this" binding happens at invocation time.
+- function invocation pattern -> "this" refers to the global "this". need to use "that=this" to workaround to access methods' this context.
+- constructor invocation pattern-> "this" bounds to the new object instantiated.  contructor's name should be capitalized.
+- apply invocation pattern-> "this" is specified.
+
+Functions continue
+
+- "arguments" can be used to access arguments.
+- if function was invoked with the "new" prefix and the 'return' value is not an object, then "this" (the new object) is returned instead.
+- exception is to use "throw { name: 'typeError', message: 'add needs numbers' }." this object will be delivered to the "catch" of a "try" statement.
+- XXXX-> come back to "recursion" later. difficult topics.
+
+Variable scope
+
+- javascript doesn't have block scope but function scope. therefore, all variables should be declare early in the function.
+- closure is based on the fact that variable can be hidden in a function and return the public methods that can access those variables from within the function.
+- XXXX-> come back to "closure later part" later. difficult topics.
+
+Function continue
+
+- module is a function or object that presents and interface but hides its state and implementation by using closure.
+- curry method<- don't see the usage very often.
+- memoization method can help reduce the number of duplicate function call. math heavy
+
+
